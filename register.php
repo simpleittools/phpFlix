@@ -3,7 +3,11 @@
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->load();
     require_once("./includes/config.php");
+    require_once("./includes/classes/Account.php");
     require_once("./includes/classes/FormSanitizer.php");
+
+    $account = new Account($conn);
+
     if(isset($_POST["submitButton"])){
         $firstName = FormSanitizer::sanitizeFormString($_POST['firstName']);
         $lastName = FormSanitizer::sanitizeFormString($_POST['lastName']);
