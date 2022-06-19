@@ -1,0 +1,11 @@
+# Global ignore
+.idea
+.DS_Store
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
+/vendor
