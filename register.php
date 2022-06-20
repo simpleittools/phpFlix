@@ -22,9 +22,10 @@
         );
 
         if($success) {
-//            Store Session
+            $_SESSION['userLoggedIn'] = $username;
             header("Location: index.php");
         }
+
 
     }
 

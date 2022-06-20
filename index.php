@@ -1,3 +1,10 @@
+<?php
+    require_once('./layouts/header.php');
+
+    if(!isset($_SESSION["userLoggedIn"])) {
+        header("Location; login.php");
+    }
+?>
 <!doctype html>
 <html lang="en">
 <head>
