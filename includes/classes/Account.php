@@ -24,6 +24,22 @@ class Account
 
     }
 
+    public function login($un, $pw)
+    {
+        $pw = hash('sha512', $pw);
+        $query = $this->conn->prepare('SELECT * FROM users WHERE username=:un AND password=:pw');
+        $query->bindValue(':un', $un);
+        $query->bindValue(':pw', $pw);
+
+        $query->execute();
+
+        if ($query->rowCount() == 1){
+            return true;
+        }
+        array_push($this->errorArray, Constants::$loginFail);
+        return false;
+    }
+
     private function insertUserDetials($fn, $ln, $un, $em, $pw)
     {
         $pw = hash("sha512", $pw);
