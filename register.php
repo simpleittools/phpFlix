@@ -52,18 +52,18 @@
             </div>
             <form method="post">
                 <?= $account->getError(Constants::$firstNameCharacters); ?>
-                <input type="text" placeholder="First Name" name="firstName" required>
+                <input type="text" placeholder="First Name" name="firstName" value="<?php getInputValue('firstName');?>" required>
 
                 <?= $account->getError(Constants::$lastNameCharacters); ?>
-                <input type="text" placeholder="Last Name" name="lastName" required>
+                <input type="text" placeholder="Last Name" name="lastName" value="<?php getInputValue('lastName');?>" required>
                 <?= $account->getError(Constants::$usernameCharacters); ?>
                 <?= $account->getError(Constants::$usernameTaken); ?>
-                <input type="text" placeholder="Username" name="username" required>
+                <input type="text" placeholder="Username" name="username" value="<?php getInputValue('username');?>" required>
                 <?= $account->getError(Constants::$emailsDontMatch); ?>
                 <?= $account->getError(Constants::$emailInvalid); ?>
                 <?= $account->getError(Constants::$emailTaken); ?>
-                <input type="email" placeholder="Email" name="email" required>
-                <input type="email" placeholder="Confirm Email" name="email2" required>
+                <input type="email" placeholder="Email" name="email" value="<?php getInputValue('email');?>" required>
+                <input type="email" placeholder="Confirm Email" name="email2" value="<?php getInputValue('email2');?>" required>
                 <?= $account->getError(Constants::$passwordsDontMatch); ?>
                 <?= $account->getError(Constants::$passwordLength); ?>
                 <input type="password" placeholder="Password" name="password" required>

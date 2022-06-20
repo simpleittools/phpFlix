@@ -6,5 +6,6 @@
     require_once('./includes/classes/Account.php');
     require_once('./includes/classes/FormSanitizer.php');
     require_once('./includes/classes/Constants.php');
+    require_once('./includes/functions/fuctions.php');
 
 ?>

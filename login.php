@@ -19,8 +19,9 @@ if (isset($_POST['submitButton'])) {
         header('Location: index.php');
     }
 
-
 }
+
+
 ?>
 
 <!doctype html>
@@ -43,7 +44,7 @@ if (isset($_POST['submitButton'])) {
         </div>
         <form action="" method="post">
             <?= $account->getError(Constants::$loginFail); ?>
-            <input type="text" placeholder="Username" name="username" required>
+            <input type="text" placeholder="Username" name="username" value="<?php getInputValue('username');?>" required>
             <input type="password" placeholder="Password" name="password" required>
             <input type="submit" name="submitButton" value="SUBMIT">
         </form>
