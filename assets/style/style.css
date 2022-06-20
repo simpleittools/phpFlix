@@ -12,14 +12,6 @@ body {
     box-sizing: border-box;
 }
 
-.signInContainer {
-    background-color: #efefee;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .column {
     background-color: #fff;
     min-height: 300px;
@@ -78,6 +70,21 @@ body {
 
 .column .header img {
     width: 100px;
+}
+
+.errorMessage {
+    color: #f00;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.signInContainer {
+    background-color: #efefee;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .signInMessage {

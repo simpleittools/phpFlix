@@ -5,6 +5,7 @@
     require_once("./includes/config.php");
     require_once("./includes/classes/Account.php");
     require_once("./includes/classes/FormSanitizer.php");
+    require_once("./includes/classes/Constants.php");
 
     $account = new Account($conn);
 
@@ -16,6 +17,21 @@
         $email2 = FormSanitizer::sanitizeFormEmail($_POST['email2']);
         $password = FormSanitizer::sanitizeFormPassword($_POST['password']);
         $password2 = FormSanitizer::sanitizeFormPassword($_POST['password2']);
+        $success = $account->register(
+                $firstName,
+                $lastName,
+                $username,
+                $email,
+                $email2,
+                $password,
+                $password2
+        );
+
+        if($success) {
+//            Store Session
+            header("Location: index.php");
+        }
+
     }
 
 ?>
@@ -39,12 +55,22 @@
                 <span>to continue to TrekFlix</span>
 
             </div>
-            <form action="" method="post">
+            <form method="post">
+                <?= $account->getError(Constants::$firstNameCharacters); ?>
                 <input type="text" placeholder="First Name" name="firstName" required>
+
+                <?= $account->getError(Constants::$lastNameCharacters); ?>
                 <input type="text" placeholder="Last Name" name="lastName" required>
+                <?= $account->getError(Constants::$usernameCharacters); ?>
+                <?= $account->getError(Constants::$usernameTaken); ?>
                 <input type="text" placeholder="Username" name="username" required>
+                <?= $account->getError(Constants::$emailsDontMatch); ?>
+                <?= $account->getError(Constants::$emailInvalid); ?>
+                <?= $account->getError(Constants::$emailTaken); ?>
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="email" placeholder="Confirm Email" name="email2" required>
+                <?= $account->getError(Constants::$passwordsDontMatch); ?>
+                <?= $account->getError(Constants::$passwordLength); ?>
                 <input type="password" placeholder="Password" name="password" required>
                 <input type="password" placeholder="Confirm Password" name="password2" required>
                 <input type="submit" name="submitButton" value="SUBMIT">
